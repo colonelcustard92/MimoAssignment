@@ -1,0 +1,6 @@
+@MimoAssignment_HostAddress = http://localhost:5139
+
+GET {{MimoAssignment_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
