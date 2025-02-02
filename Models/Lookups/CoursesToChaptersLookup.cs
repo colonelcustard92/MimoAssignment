@@ -2,9 +2,9 @@
 
 public partial class CoursesToChaptersLookup
 {
-    public string CourseId { get; set; } = null!;
+    public Guid CourseId { get; set; }
 
-    public int ChapterId { get; set; }
+    public Guid ChapterId { get; set; }
 
     public int Order { get; set; }
 

@@ -2,11 +2,13 @@
 
 public partial class UserToAchievementLookup
 {
-    public string UserId { get; set; } = null!;
+    public Guid UserId { get; set; }
 
-    public string AchievementId { get; set; } = null!;
+    public Guid AchievementId { get; set; }
 
     public int IsCompleted { get; set; }
+    
+    public int AchievementProgress { get; set; }
 
     public virtual Achievement Achievement { get; set; } = null!;
 

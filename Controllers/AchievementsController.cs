@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using MimoAssignment.Services;
 
 namespace MimoAssignment.Controllers
 {
@@ -7,12 +8,19 @@ namespace MimoAssignment.Controllers
     [ApiController]
     public class AchievementsController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAchievements()
+        
+        private readonly AchievementsService _achievementsService;
+
+        public AchievementsController(AchievementsService achievementsService)
         {
-            
-            return Ok();
+            _achievementsService = achievementsService;
         }
-        //TODO: Create a GET endpoint and return AchievementId, IsCompleted and AchievementProgress (To be added to DB)
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+           var result =await _achievementsService.ReturnAllAchievementsForGivenUser("Reece");
+            return Ok(result);
+        }
+        
     }
 }

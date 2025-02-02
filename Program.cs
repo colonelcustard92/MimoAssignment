@@ -1,4 +1,9 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.EntityFrameworkCore;
+using MimoAssignment.Contexts;
+using MimoAssignment.Models;
+using MimoAssignment.Services;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -6,6 +11,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<AchievementsService>();
+builder.Services.AddDbContext<MimoTestContext>(options =>
+    options.UseSqlite("Data Source=MimoTest.db"));
 
 var app = builder.Build();
 

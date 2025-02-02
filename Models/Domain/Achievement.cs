@@ -1,10 +1,11 @@
-﻿namespace MimoAssignment.Models;
+﻿using System;
+using System.Collections.Generic;
 
-public class Achievement
+namespace MimoAssignment.Models;
+
+public partial class Achievement
 {
-    public string AchievementId { get; set; } = null!;
+    public Guid AchievementId { get; set; }
 
     public string AchievementDescription { get; set; } = null!;
-    
-    public int AchievementProgress { get; set; }
 }

@@ -1,12 +1,16 @@
-﻿namespace MimoAssignment.Models;
+﻿using System;
+using System.Collections.Generic;
+using MimoAssignment.Models.Domain;
+
+namespace MimoAssignment.Models;
 
 public partial class Chapter
 {
-    public int ChapterId { get; set; }
+    public Guid ChapterId { get; set; }
 
     public string Description { get; set; } = null!;
 
-    public string CourseId { get; set; } = null!;
+    public Guid CourseId { get; set; }
 
     public virtual Course Course { get; set; } = null!;
 

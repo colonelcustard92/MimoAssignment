@@ -1,8 +1,11 @@
-﻿namespace MimoAssignment.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace MimoAssignment.Models;
 
 public partial class Course
 {
-    public string CourseId { get; set; } = null!;
+    public Guid CourseId { get; set; }
 
     public string? Name { get; set; }
 

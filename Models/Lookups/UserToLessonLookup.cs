@@ -1,10 +1,12 @@
-﻿namespace MimoAssignment.Models;
+﻿using MimoAssignment.Models.Domain;
+
+namespace MimoAssignment.Models;
 
 public partial class UserToLessonLookup
 {
-    public string UserId { get; set; } = null!;
+    public Guid UserId { get; set; }
 
-    public int LessonId { get; set; }
+    public Guid LessonId { get; set; }
 
     public DateTime TimeStarted { get; set; }
 

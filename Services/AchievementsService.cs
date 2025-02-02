@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MimoAssignment.Models;
+using MimoAssignment.Contexts;
 using MimoAssignment.Models.ViewModels;
 
 namespace MimoAssignment.Services;
@@ -18,15 +18,16 @@ public class AchievementsService
         {
             if (String.IsNullOrWhiteSpace(userName)) return new List<AchievementViewModel>();
 
-            return await _context.UserToAchievementLookups
+            var result = await _context.UserToAchievementLookups
                 .Where(x => x.User.Username == userName)
                 .Select(x => new AchievementViewModel
                 {
-                    AchievementId = x.AchievementId,
+                    AchievementId = x.AchievementId.ToString(),
                     IsCompleted = x.IsCompleted,
-                    AchievementProgress = x.Achievement.AchievementProgress
-                })
-                .ToListAsync();
+                    AchievementProgress = x.AchievementProgress
+                }).ToListAsync();
+
+            return result;
         }
         catch (Exception e)
         {
@@ -34,8 +35,6 @@ public class AchievementsService
             throw;
             //Log to App Insights
         }
-      
-
-
+        
     }
 }
