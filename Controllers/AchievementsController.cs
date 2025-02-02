@@ -16,9 +16,10 @@ namespace MimoAssignment.Controllers
             _achievementsService = achievementsService;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get( [FromQuery] string userName)
         {
-           var result =await _achievementsService.ReturnAllAchievementsForGivenUser("Reece");
+           var result =await _achievementsService.ReturnAllAchievementsForGivenUser(userName);
+           if (!result.Any()) return NotFound("No Achievements Found for this User");
             return Ok(result);
         }
         
