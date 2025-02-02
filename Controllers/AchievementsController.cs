@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 
 namespace MimoAssignment.Controllers
@@ -7,6 +7,12 @@ namespace MimoAssignment.Controllers
     [ApiController]
     public class AchievementsController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult GetAchievements()
+        {
+            
+            return Ok();
+        }
         //TODO: Create a GET endpoint and return AchievementId, IsCompleted and AchievementProgress (To be added to DB)
     }
 }

@@ -1,5 +1,4 @@
-﻿using MimoAssignment.Controllers;
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -22,7 +21,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapCompletedLessonViewModelEndpoints();
 
 app.Run();
