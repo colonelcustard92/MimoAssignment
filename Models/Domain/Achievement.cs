@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace MimoAssignment.Models;
 
-namespace MimoAssignment.Models;
-
-public partial class Achievement
+public class Achievement
 {
     public Guid AchievementId { get; set; }
 

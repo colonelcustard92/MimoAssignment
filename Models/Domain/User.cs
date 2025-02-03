@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace MimoAssignment.Models;
 
-namespace MimoAssignment.Models;
-
-public partial class User
+public class User
 {
     public Guid UserId { get; set; }
 

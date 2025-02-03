@@ -12,11 +12,12 @@ public class AchievementsService
     {
         _context = context;
     }
+
     public async Task<List<AchievementViewModel>> ReturnAllAchievementsForGivenUser(string userName)
     {
         try
         {
-            if (String.IsNullOrWhiteSpace(userName)) return new List<AchievementViewModel>();
+            if (string.IsNullOrWhiteSpace(userName)) return new List<AchievementViewModel>();
 
             var result = await _context.UserToAchievementLookups
                 .Where(x => x.User.Username == userName)
@@ -25,6 +26,7 @@ public class AchievementsService
                     AchievementId = x.AchievementId.ToString(),
                     IsCompleted = x.IsCompleted,
                     AchievementProgress = x.AchievementProgress
+                    
                 }).ToListAsync();
 
             return result;
@@ -35,6 +37,5 @@ public class AchievementsService
             throw;
             //Log to App Insights
         }
-        
     }
 }

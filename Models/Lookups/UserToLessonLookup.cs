@@ -2,7 +2,7 @@
 
 namespace MimoAssignment.Models;
 
-public partial class UserToLessonLookup
+public class UserToLessonLookup
 {
     public Guid UserId { get; set; }
 

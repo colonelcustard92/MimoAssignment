@@ -1,13 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MimoAssignment.Contexts;
-using MimoAssignment.Models;
 using MimoAssignment.Services;
+using Newtonsoft;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        // Configure the JSON serializer with a custom DateTime format
+        options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

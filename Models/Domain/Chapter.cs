@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using MimoAssignment.Models.Domain;
+﻿using MimoAssignment.Models.Domain;
 
 namespace MimoAssignment.Models;
 
-public partial class Chapter
+public class Chapter
 {
     public Guid ChapterId { get; set; }
 

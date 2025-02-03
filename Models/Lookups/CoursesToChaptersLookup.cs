@@ -1,6 +1,6 @@
 ﻿namespace MimoAssignment.Models;
 
-public partial class CoursesToChaptersLookup
+public class CoursesToChaptersLookup
 {
     public Guid CourseId { get; set; }
 
