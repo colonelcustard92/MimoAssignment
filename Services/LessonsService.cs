@@ -19,21 +19,23 @@ public class LessonsService
         var lesson = await _context.UserToLessonLookups.FirstOrDefaultAsync(x =>
             x.LessonId == model.LessonId && x.UserId == model.UserId);
         if(lesson is null) return "Lesson not found or no access!";
+        
         //Otherwise, update the lesson
         lesson.TimeStarted = model.TimeStarted;
         lesson.TimeCompleted = model.TimeCompleted;
         if (model.IsCompleted) lesson.TimesSolved++;
-        
-
         try
         {
             await _context.SaveChangesAsync();
             return "Lesson Updated! :)";
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            //Rollback and Log to App insights (theoretically!)
+          
             _context.ChangeTracker.Clear();
+            
+            // Log the exception (To App Insights, theoretically!)
+            Console.WriteLine($"Error updating lesson: {ex.Message}");
             return "Oops, something went wrong!";
         }
     }

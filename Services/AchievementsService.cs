@@ -31,11 +31,12 @@ public class AchievementsService
 
             return result;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            // Log the exception (To App Insights, theoretically!)
+            Console.WriteLine($"Error getting Achievements: {ex.Message}");
             throw;
-            //Log to App Insights
+            
         }
     }
 }
