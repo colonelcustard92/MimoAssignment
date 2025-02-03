@@ -26,7 +26,6 @@ public class AchievementsService
                     AchievementId = x.AchievementId.ToString(),
                     IsCompleted = x.IsCompleted,
                     AchievementProgress = x.AchievementProgress
-                    
                 }).ToListAsync();
 
             return result;
@@ -36,7 +35,6 @@ public class AchievementsService
             // Log the exception (To App Insights, theoretically!)
             Console.WriteLine($"Error getting Achievements: {ex.Message}");
             throw;
-            
         }
     }
 }

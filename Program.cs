@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MimoAssignment.Contexts;
 using MimoAssignment.Services;
-using Newtonsoft;
 
 var builder = WebApplication.CreateBuilder(args);
 
