@@ -17,7 +17,8 @@ public class LessonsService
     {
         //Get all Lessons for the given UserId
         var lesson = await _context.UserToLessonLookups.FirstOrDefaultAsync(x =>
-            x.LessonId == model.LessonId && x.UserId == model.UserId);
+            x.LessonId == model.LessonId
+            && x.UserId == model.UserId);
         if(lesson is null) return "Lesson not found or no access!";
         
         //Otherwise, update the lesson
