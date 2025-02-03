@@ -1,14 +1,13 @@
 ﻿namespace MimoAssignment.Models.ViewModels
-{
+{ 
     public class CompletedLessonViewModel
-{
-    public string LessonDescription { get; set; } = string.Empty;
-    public DateTime TimeStarted { get; set; }
-    public DateTime TimeCompleted { get; set; }
-    public bool IsCompleted => TimeCompleted > TimeStarted;
-
-    // Optional: Helper to format lesson duration for display
-    public string LessonDuration => 
-        IsCompleted ? (TimeCompleted - TimeStarted).ToString(@"hh\:mm\:ss") : "In Progress";
-}
+    { 
+        public Guid LessonId { get; set; }
+        public Guid UserId { get; set; }
+        public required string UserName { get; set; }
+        public string LessonDescription { get; set; } = string.Empty;
+        public DateTime TimeStarted { get; set; }
+        public DateTime TimeCompleted { get; set; }
+        public bool IsCompleted { get; set; }
+    }
 }

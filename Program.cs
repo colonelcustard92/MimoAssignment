@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<LessonsService>();
 builder.Services.AddScoped<AchievementsService>();
 builder.Services.AddDbContext<MimoTestContext>(options =>
     options.UseSqlite("Data Source=MimoTest.db"));

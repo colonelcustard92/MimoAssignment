@@ -9,13 +9,18 @@ namespace MimoAssignment.Controllers
     [ApiController]
     public class LessonsController : ControllerBase
     { 
-      
-        [HttpPost]
-        public async Task<IActionResult> PostCompletedLesson([FromBody] CompletedLessonViewModel completedLesson)
+        
+        private readonly LessonsService _lessonsService;
+        public LessonsController(LessonsService lessonsService)
         {
-            LessonsService LS = new LessonsService();
-            var completedLessons = await LS.GetCompletedLessonAsync(completedLesson);
-            return Ok(completedLessons);
+            _lessonsService = lessonsService;
+        }
+        
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] CompletedLessonViewModel completedLesson)
+        {
+            var updateResponse = await _lessonsService.UpdateCompletedLessonAsync(completedLesson);
+            return Ok(updateResponse);
         }
     }
 }
