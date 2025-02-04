@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MimoAssignment.Models;
 using MimoAssignment.Models.Domain;
+using MimoAssignment.Models.Lookups;
 
 namespace MimoAssignment.Contexts;
 

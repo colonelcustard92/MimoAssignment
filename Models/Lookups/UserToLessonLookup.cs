@@ -1,6 +1,6 @@
 ﻿using MimoAssignment.Models.Domain;
 
-namespace MimoAssignment.Models;
+namespace MimoAssignment.Models.Lookups;
 
 public class UserToLessonLookup
 {
